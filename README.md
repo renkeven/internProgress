@@ -1,4 +1,10 @@
 # internProgress
 
-## Work log for ADACS internship will be kept in this git repo
+Work log for ADACS internship
+
+Tutorials:
+Django tutorials
+JS tutorials
+React tutorials
+
 
