@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project1</title>
+</head>
+<body>
+    <script>
+        // turn a bunch of text into a url
+        // add some website name in front of it
+
+        var basename = 'https://www.google.com/'
+        var text = 'The quick brown fox_runs over-some Dog.'
+
+        // use regex in a string
+        // [^a-z] selects all characters that are NOT (negate ^) a-z. this means all whitespaces + symbols are selected.
+        // /i means case-insensitive
+        // /g means global match. matches the entire string instead of stopping first amtch
+        // .replace function. special chars are replaced with whitespace
+        // turned into lowercase
+        // remove trailing whitespace
+        // replace with hyphens
+        text = text.replace(/[^a-z]/gi, ' ').toLowerCase().trim().replace(/[ ]/g,'-');
+
+        console.log(basename+text+'/');
+
+    </script>
+</body>
+</html>

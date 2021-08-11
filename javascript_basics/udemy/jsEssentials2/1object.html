@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1object</title>
+</head>
+<body>
+    
+    <script>
+        // objects can be embedded within objects
+        // same as functions
+
+        var car = {
+            make: "volvo",
+            speed: 160,
+            engine: {
+                size: 2.0,
+                make: "bmw",
+                fuel: "petrol",
+                pistons:[ {maker: "bmw" }, { maker: "bmw" } ],
+            },
+            drive: function(){ return "drive"; }
+        };
+
+        console.log(car.drive());
+
+        var array = ["string", function(){ return "drive"; }]
+
+        console.log(array[1]());
+
+        // you can also reference the object's key using square notation with "str"
+
+        console.log(car["make"]);
+        console.log(car["engine"]["size"]);
+
+        // to add new properties to the car, you can
+
+        car.color = "red";
+
+        console.log(car);
+        console.log(car.color);
+
+        // if you want to remove a propety, you can use the delete operator
+        // if it's successful, it would return true
+        
+        delete car.color;
+        console.log(car);
+
+        // careful with modifying arrays, as it would dynamically populate arrays
+        // e.g. if i used arr[20], it would give me undefined for a bunch of elements that did not exist before
+
+        // memory hoisting allows you to define variables at any point, but does not assign it until it reaches it from top to bottom.
+        // functions itself are hoisted to the top, and it will execute even if you define it later.
+
+        console.log(myName, printName());
+
+        var myName = "john";
+
+        function printName(){
+            return "jogn doe";
+        };
+
+        // as above, it reads through execution context (top to bottom). myName is hoisted, but is unassigned
+        // results in undefined, jogn doe.
+
+    </script>
+</body>
+</html>

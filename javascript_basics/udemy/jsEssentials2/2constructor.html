@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2constructor</title>
+</head>
+<body>
+    <script>
+        // create a constructor object, convention is to capitalise the front
+
+        function Apple(x, y, color, score){
+
+            this.x = x;
+            this.y = y;
+            this.color = color;
+            this.score = score;
+
+        };
+
+        Apple.prototype = {
+            eat     : function(){ this.eat = 'eat'; },
+            throw   : function(){ this.y = this.x * 25; },
+            cry     : function(){ return 'cryblah'; }
+        };
+
+        firstApple = new Apple(10, 20, 'red', 200);
+
+        console.log(firstApple);
+
+        // prototype allows an object to share methods.
+        // an apple has its unique propertiees
+        // but define a prototype that have shared methods across all instantiated apples
+        // js searches through the prototype chain to find common methods/properties
+
+
+        console.log(firstApple.eat());
+        console.log(firstApple.throw());
+        console.log(firstApple.cry());
+
+        console.log(firstApple);
+
+    </script>
+</body>
+</html>

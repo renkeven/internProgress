@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7ifelse</title>
+</head>
+<body>
+    <script>
+        // the syntax for if .. else in js is given as if(cond){} (no ';' if chaining with an else)
+        // the else statement follows after }.
+        var name = "Keven";
+
+        if(name == "Keven"){
+            console.log("Name is Keven");
+        }
+        else{
+            console.log("Name is not Keven");
+        };
+
+        // to chain multiple, use.. else if{}
+        if(name == "Keven"){
+            console.log("Name is Keven");
+        }
+        else if(name == "Joseph"){
+            console.log("Name is Joseph");
+        }
+        else{
+            console.log("Name is not Keven");
+        };
+
+        // use prompt statements for user if else,
+
+        var name = prompt("What is your name?");
+
+        // if(name.toLowerCase() == "keven"){
+        //     console.log("Name is keven");
+        // }
+        // else{
+        //     console.log("Name isn't keven");
+        // }
+
+        if(name == "null"){
+            console.log("Hello guest");
+        }
+        else {
+            console.log("Hello " + name);
+        };
+        
+
+    </script>
+</body>
+</html>

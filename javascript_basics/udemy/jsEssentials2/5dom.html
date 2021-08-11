@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5dom</title>
+</head>
+<body>
+    <p id="first">hello world</p>
+    <h1 class="pClass">hello</h1>
+    <p data-content="123"> this is third paragraph</p>
+    <p class="pClass"> fourth pargraph</p>
+    <h1 class="pClass"> Javascript Essentials
+        <span>Hello</span>
+    </h1>
+    <script>
+        // dom, we can access by getElementsby
+        // first grab it by tag name, like <'p'>
+        // grab the innerHTML of the first <p> item
+        console.log(document.getElementsByTagName('p')[0].innerHTML);
+
+        // probably a better way is to geet it by id
+        console.log(document.getElementById("first").innerHTML);
+
+        // alternatively you can grab by classname
+        console.log(document.getElementsByClassName("pClass"));
+
+        // as prior, you can use querySelector(All)
+        // # is class
+        // . is tag
+        // you can combine to target multiple
+        console.log(document.querySelectorAll('#first'));
+        console.log(document.querySelectorAll('#first, .pClass'));
+
+        // advanced targeting. get data-content &
+        // to go down the chain, can use ">". body > h1 (tag) .pClass (class) > span (tag)
+        console.log(document.querySelectorAll('p[data-content="123"], body > h1.pClass > span'));
+
+        // do a change
+        var pHello = document.getElementById('first');
+        pHello.innerText += " order";
+        pHello.innerHTML += " <p><span> new world order </span></p>"
+
+        var spanH1 = document.querySelectorAll('body h1 span')[0];
+        console.log(spanH1.innerHTML);
+
+    </script>
+</body>
+</html>

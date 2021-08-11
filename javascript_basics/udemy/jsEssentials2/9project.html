@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project</title>
+</head>
+<body>
+    <select name='cssProperty' id="background">
+        <option value="green">green</option>
+        <option value="blue">blue</option>
+        <option value="red">red</option>
+    </select>
+
+    <select name='cssProperty' id="width">
+        <option value="100px">100px</option>
+        <option value="200px">200px</option>
+        <option value="300px">300px</option>
+    </select>
+
+    <select name='cssProperty' id="height">
+        <option value="100px">100px</option>
+        <option value="200px">200px</option>
+        <option value="300px">300px</option>
+    </select>
+
+    <button id="set">set</button>
+
+    <div id="modify" style="width:300px; height:300px; background:blue "></div>    
+    <script>
+        // need to select the elements of our dropdown upon click of the set button
+
+        /* my solution:
+
+        function grabParameters( ){
+            function parameterShortcut(id){
+                let param = document.getElementById(id);
+                return param.options[param.selectedIndex].value;
+            };
+
+            let backgroundParam = parameterShortcut("background");
+            let widthParam = parameterShortcut("width");
+            let heightParam = parameterShortcut("height");
+
+            console.log(backgroundParam, widthParam, heightParam);
+
+            return [backgroundParam, widthParam, heightParam];
+        };
+
+        var setButton = document.getElementById("set");
+
+        setButton.onclick = function(){
+            let [backgroundVal, widthVal, heightVal] = grabParameters();
+            let modifyElement = document.getElementById("modify");
+
+            console.log(backgroundVal, widthVal, heightVal);
+
+            concatString = `background:${backgroundVal}; width:${widthVal}; height:${heightVal}`
+            console.log(concatString);
+            modifyElement.style.cssText = concatString;
+        };
+        */
+
+        // better solution, add name
+
+    </script>
+</body>
+</html>

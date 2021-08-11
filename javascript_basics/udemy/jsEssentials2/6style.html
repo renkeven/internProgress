@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6style</title>
+    <style>
+        /* same as prior, use # for id, . for class */
+        #firstStyle
+        {
+            background: green !important;
+            color: white;
+            width: 300px;
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="firstStyle"> Style me! </h1>
+    <script>
+        var styleHeader = document.getElementById('firstStyle');
+
+        /* This is one way to edit the style by js
+
+        styleHeader.style.background = "blue";
+        styleHeader.style.backgroundPositionY = '200px';
+        styleHeader.style.color = "white";
+        styleHeader.style.fontSize = '30px'
+
+        */
+
+        // probably a more practical way is to use .cssText
+        // probably need to consult css syntax itself for some of the changes
+        // i.e. fontSize in js, but font-size in css
+
+        //styleHeader.style.cssText = " font-size:100px ";
+        //styleHeader.style.cssText = " background: blue; color: white; font-size: 100px ";
+
+        // grab computeed properties for the css template (not the edited js version)
+        console.log(getComputedStyle(styleHeader));
+
+        // to fix the style attribute in the css file, then you can an !important after the attribute
+
+    </script>
+</body>
+</html>

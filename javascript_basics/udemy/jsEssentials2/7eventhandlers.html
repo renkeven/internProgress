@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7eventhandlers</title>
+</head>
+<body>
+    <select name="cars">
+        <option value="volvo">volvo</option>
+        <option value="saab">saab</option>
+    </select>
+    <script>
+        // use js to add event listeners. for one event listener
+
+        var select = document.getElementsByName('cars')[0];
+
+        select.onclick = function( event ){
+            console.log(event);
+        };
+
+        // to add another one, you can addEventListener
+
+        select.addEventListener( 'click', function( event ){
+            console.log('clicked by event listener');
+        } );
+
+        // to remove, you can use removeEventListener. however, the function needs to be explicitly defined and not anonymous like above
+        // for example
+
+        function ClickCallback( event ){
+            console.log('clicked by add event listener');
+        };
+
+        select.addEventListener('click', ClickCallback);
+        select.removeEventListener('click', ClickCallback);
+
+    </script>
+</body>
+</html>

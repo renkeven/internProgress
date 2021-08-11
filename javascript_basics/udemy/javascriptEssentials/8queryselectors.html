@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8query</title>
+</head>
+<body>
+
+    <div id='main'>
+        <h1>hello</h1>
+    </div>
+    <p>
+    <input type="text" class="textfield" value="some info">
+
+    <script>
+        // a query selector takes in either a class, id or element.
+        // you target it with a hash, #.
+        // made a div above with an id = 'main'
+
+        var main = document.querySelector('#main');
+        console.log(main.innerHTML);
+
+        main.innerHTML = "<h2>i'm changed</h2>"
+
+        console.log(main.innerHTML);
+
+        // alternatively, we can just concatenate
+
+        main.innerHTML += "hello this is second line".toUpperCase().replace(/[^a-z]/ig,'-');
+
+        // let's do a second example and use a class selector. we'll grab the info of the textfield
+        // to grab the class, we use the pre pend, dot, .
+
+        var txt = document.querySelector('.textfield');
+        console.log(txt);
+
+        // this time, we want to change the value attribute, in our case it's .value
+        txt.value = 'new value';
+        console.log(txt.value);
+
+        // we can add CSS to our html. let's target our div
+        main.style.border = '1px solid red';
+        main.style.paddingTop = '50px';
+        main.style.marginLeft = '50px';
+
+
+
+    </script>
+</body>
+</html>

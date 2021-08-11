@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3forloops</title>
+</head>
+<body>
+    <script>
+        // similar to if loop, you can use a for loop
+
+        var classRegister = ["Keven", "Ren", "Hope"];
+
+        console.log(classRegister);
+
+        // classic way
+        for(var i in classRegister){
+        //    console.log(i);
+            console.log(classRegister[i]);
+        };
+
+        // reverse classic
+        for (var i in classRegister.reverse()){
+            console.log(classRegister[i]);
+        };
+
+        // enumerate very similar to C,
+        for (var i = 0; i < classRegister.length; i++){
+            console.log(classRegister[i]);
+        };
+
+        console.log(i);
+
+        // now let's de-increment
+
+        for (var i = classRegister.length - 1; i >= 0; i--){
+            console.log(classRegister[i]);
+        };
+
+    </script>
+</body>
+</html>

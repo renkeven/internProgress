@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9functions</title>
+</head>
+<body>
+
+    <div id="main">
+
+    </div>
+
+    <input type="text" class="textfield" value="Name" />
+
+    <script>
+        // we'll work with a sample function,
+
+        function Addition(x,y){
+            console.log(x+y);
+            return x+y;
+        };
+
+        var total = Addition(1,2);
+        console.log(total, Addition(232,43));
+
+        // good practice is to do only a few jobs per function.
+
+        function getName(class_selector){
+            var nameElement = document.querySelector("."+class_selector);
+            var name = nameElement.value;
+            //console.log(name);
+
+            if(name == "Name"){
+                name = "Keven Ren"
+            };
+
+            return name;
+        };
+
+        var currentName = getName('textfield');
+        console.log(currentName);
+
+        function getFirstName(class_selector){
+            var fullName = getName(class_selector);
+            var nameArray = fullName.split(" ");
+
+            if(nameArray.length == 1){
+                return nameArray[0];
+            }
+            else{
+                return nameArray.at(0);
+            };
+        }
+
+        var currentFirstName = getFirstName('textfield');
+        console.log(currentFirstName);
+
+        function getLastName(class_selector){
+            var fullName = getName(class_selector);
+            var nameArray = fullName.split(" ");
+
+            if(nameArray.length == 1){
+                return nameArray[0];
+            }
+            else{
+                return nameArray.at(-1);
+            };
+        }
+
+        var currentLastName = getLastName('textfield');
+        console.log(currentLastName);
+
+    </script>
+</body>
+</html>

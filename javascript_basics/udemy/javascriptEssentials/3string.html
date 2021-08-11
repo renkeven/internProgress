@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<link rel="shortcut icon" href="#">-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String manipulation</title>
+</head>
+<body>
+    <h1>test</h1>
+    <script>
+        // in js, use dot notation to access functions inside objects.
+        var str = "The blue blanket is sitting on the desk";
+
+        // string object has a function called length. access it with .length
+        console.log(str.length);
+        //>39
+
+        // if we want to find a substring and the index where it starts. we can use .indexOf
+        console.log(str.indexOf("blanket"));
+        //>9
+
+        // if the word does not exist, then we get -1.
+        console.log(str.indexOf("red"));
+        //>-1
+
+        // the .indexOf function is case-sensitive
+        console.log(str.indexOf("Blanket"));
+        //>-1
+
+        // a get-around to safeguard this is to turn the string into all lowercase
+        var strLower = str.toLowerCase();
+        console.log(strLower);
+
+        console.log(strLower.indexOf('blanket'));
+
+        // alternatively take all upper
+        var strUpper = str.toUpperCase();
+        console.log(strUpper);
+
+        console.log(strUpper.indexOf('THE'));
+
+        // what if we cant to split the str? we can use substring which starts at an index, then take a length of elements after
+        var strSub = str.substr(0, 27);
+        console.log(strSub);
+
+        // or we can use slice if we want to slice a string between two indices
+        console.log(str.slice(10,15));
+
+        // if we only use one int for substr, we start on index k, then take all the way to the end
+        console.log(str.substr(15));
+
+        // alternatively, if we use a negative int, then we start from the back to the end
+        console.log(str.substr(-10));
+
+        // behavior is same for slice, with one int defined.
+        console.log(str.slice(15));
+
+        // if we want to replace elements, we can just use .replace
+        // if it doesn't replaced element does not exist, it just returns the string
+        console.log(str.replace("blanket", "pillow"));
+        console.log(str.replace("bed", "pillow"));
+
+        // when you add str with the operation, '+', you concatenate strings
+        var name = 'keven '
+        console.log(name + str);
+
+        // in js, if you try add str with a int, it changes the int into a str. it has some degree of intelligence in converting str to int and vice versa.
+        // but probably best practice to hit it with Number(str) to turn it into an int.
+        console.log(name + 20.5);
+        console.log("315" * 20);
+
+        // but with another operation, like '*, -' then you'll return a NaN
+        console.log(name * 20);
+        console.log(name - 20);
+
+        // we can split using .split(delimiter)
+        arr = str.split(" ")
+        console.log(arr);
+        console.log(arr.length);
+
+        // join them back together is (arr).join(delimiter)
+        console.log(arr.join("-"));
+        console.log(arr.join("-").toLowerCase());
+
+        // some useful ones
+        // arr.pop -> returns last element of array, but also removes the element from original array
+        // arr.push does the opposite. pushes an element to the end of array and returns the new length of array
+        console.log(arr.pop());
+        console.log(arr.push('yello'));
+        console.log('BREAK');
+        console.log(arr);
+        arr = str.split(" ");
+
+        // arr.concat(arr2) -> concatenates arr with arr2
+        // arr.at(index) -> returns element at index. probably useful as it takes in a negative number argument to grab from the back.
+        console.log(arr.at(-1));
+
+        // .filter. almost like list comprehension. [a for (condition a) in arr] and returns elements where true 
+        // can also intake a function with one variable! fn needs to return true/false though
+        // example below uses a lambda func
+        console.log(arr.filter(a => a.length > 4));
+
+        // if you just want to apply a function, you can use .forEach()
+        // but if you want an array output, then you can use .map
+        arr.forEach(element => {
+            console.log(element)
+        });
+        //or
+        arr.forEach(a => console.log(a));
+
+        // if you decide to use {} for a multi-expression function, be sure to include a return statement.
+        console.log(arr.map(a => {
+            return 'hello'
+        }));
+
+
+    </script>
+</body>
+</html>

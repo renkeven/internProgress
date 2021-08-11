@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8domelements</title>
+</head>
+<body>
+
+    <div style="background:yellow; width:200px; height:20px" id="yellow"></div>
+    <div style="background:green; width:200px; height:20px" id="green"></div>
+
+    <script>
+        // we will try to use javascript to dynamically append objects to our document
+        // first we create some html elements, like div
+
+        var element = document.createElement('div');
+
+        element.style.cssText = "width:200px; height:20px; background:blue"
+        element.onclick = function(){ console.log('clicked me '); };
+
+        // the previous has created the object, but now we need to place it in the body with appendChild
+
+        document.body.appendChild( element );
+
+        // lets add it again by targeting the specific element, we want to prepend it to the yellow div element
+
+        var target = document.getElementById("yellow");
+
+        document.body.insertBefore( element, target );
+
+    </script>
+</body>
+</html>
