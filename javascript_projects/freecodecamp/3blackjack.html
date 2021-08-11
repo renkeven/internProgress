@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blackjack app</title>
+    <link rel="stylesheet" href="3blackjack.css">
+</head>
+<body>
+    <h1>BlackJack</h1>
+    <p></p> 
+    <div id='player-hand'>
+        <span id="initial-hand">Empty Hand</span>
+    </div>
+    <div>
+        <span></span>
+    </div>
+
+    <p></p>
+    <p></p>
+    <div>
+        <button id='start-game'>Start Game</button>
+    </div>
+    <div>
+        <button style="display:none; " id='fold-game'>fold</button>
+    </div>
+
+    <script>
+        // 2 cards that are initialised to 0, then given two variables
+        let startButton = document.getElementById('start-game');
+        let foldButton = document.getElementById('fold-game');
+
+        startButton.addEventListener('click', initGame);
+        foldButton.addEventListener('click', foldGame);
+
+        function initGame( event ){
+            foldButton.style.display="inline";
+            startButton.textContent = "hit me";
+
+            startButton.removeEventListener('click', initGame);
+            startButton.addEventListener('click', hitGame);
+
+        };
+
+        function foldGame( event ){
+            console.log('am i listening?');
+
+        };
+
+        function hitGame( event ){
+            console.log('hit me');
+        };
+
+
+    </script>
+    
+</body>
+</html>
