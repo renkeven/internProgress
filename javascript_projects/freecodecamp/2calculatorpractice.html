@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2basic calc</title>
+    <style>
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+             margin: 0; 
+        }
+    </style>
+</head>
+<body>
+    <div><input id="num-1" type="number" value='0' /></div>
+    <div><input id="num-2" type="number" value='0' /></div>
+    <p></p>
+    <div><span style="display:block; text-align: right; font-size: 30px; border: 2px solid; width: 150px; height:35px; white-space: nowrap; overflow:hidden;" id="ans">0</span></div>
+    <p></p>
+
+    <div>
+        <button id='add-btn'>add</button>
+        <button id='sub-btn'>subtract</button>
+        <button id='mult-btn'>mult</button>
+        <button id='div-btn'>divide</button>
+    </div>
+    <script>
+        // read in our nums, and spit out the appropriate ans in sum
+        let num1 = document.getElementById("num-1");
+        let num2 = document.getElementById("num-2");
+        let ansBlock = document.getElementById("ans");
+
+        num1.addEventListener( 'click', clickSelect);
+        num1.addEventListener( 'change', changeSelect);
+        num2.addEventListener( 'click', clickSelect);
+        num2.addEventListener( 'change', changeSelect);
+
+        function clickSelect( event ){
+            this.select();
+        };
+
+        function changeSelect( event ){
+            if(event.target.value==""){
+                event.target.value = 0;
+            }
+        };
+
+        addButton = document.getElementById("add-btn");
+        subButton = document.getElementById("sub-btn");
+        multButton = document.getElementById("mult-btn");
+        divButton = document.getElementById("div-btn");
+
+        addButton.onclick = function( event ){
+            let solElement = parseFloat(num1.value) + parseFloat(num2.value);
+            if(Math.abs(parseFloat(solElement)) >= 10000000 ){
+                let tmpElement = String(parseFloat(solElement).toExponential());
+                let maxDec = tmpElement.length - tmpElement.lastIndexOf("+");
+                let minusMod = 0;
+
+                if(parseFloat(solElement) < 0){
+                    minusMod = 1;
+                };
+
+                solElement = String(parseFloat(solElement).toExponential(8 - minusMod - maxDec - tmpElement.lastIndexOf(".")));
+
+            }
+            else {
+                if(solElement.length > 9){
+                    if(solElement.lastIndexOf(".")!==-1 & solElement.lastIndexOf(".") < 10){
+                        solElement = String(parseFloat(solElement).toFixed(9 - solElement.lastIndexOf(".")));
+                    }
+                    solElement.slice(0,9);
+                };
+            }
+            ansBlock.textContent = solElement;
+        };
+
+        subButton.onclick = function( event ){
+            let solElement = parseFloat(num1.value) - parseFloat(num2.value);
+            if(Math.abs(parseFloat(solElement)) >= 10000000 ){
+                let tmpElement = String(parseFloat(solElement).toExponential());
+                let maxDec = tmpElement.length - tmpElement.lastIndexOf("+");
+                let minusMod = 0;
+
+                if(parseFloat(solElement) < 0){
+                    minusMod = 1;
+                };
+                solElement = String(parseFloat(solElement).toExponential(8 - maxDec - tmpElement.lastIndexOf(".")));
+
+            }
+            else {
+                if(solElement.length > 9){
+                    if(solElement.lastIndexOf(".")!==-1 & solElement.lastIndexOf(".") < 10){
+                        solElement = String(parseFloat(solElement).toFixed(9 - solElement.lastIndexOf(".")));
+                    }
+                    solElement.slice(0,9);
+                };
+            }
+            ansBlock.textContent = solElement;
+        };
+
+        multButton.onclick = function( event ){
+            let solElement = String(parseFloat(num1.value) * parseFloat(num2.value));
+            if(Math.abs(parseFloat(solElement)) >= 10000000 ){
+                let tmpElement = String(parseFloat(solElement).toExponential());
+                let maxDec = tmpElement.length - tmpElement.lastIndexOf("+");
+                let minusMod = 0;
+
+                if(parseFloat(solElement) < 0){
+                    minusMod = 1;
+                };
+
+                solElement = String(parseFloat(solElement).toExponential(8 - maxDec - tmpElement.lastIndexOf(".")));
+
+            }
+            else {
+                if(solElement.length > 9){
+                    if(solElement.lastIndexOf(".")!==-1 & solElement.lastIndexOf(".") < 10){
+                        solElement = String(parseFloat(solElement).toFixed(9 - solElement.lastIndexOf(".")));
+                    }
+                    solElement.slice(0,9);
+                };
+            }
+            ansBlock.textContent = solElement;
+        };
+
+        divButton.onclick = function( event ){
+            let solElement = String(parseFloat(num1.value) /  parseFloat(num2.value));
+            
+            if(Math.abs(parseFloat(solElement)) >= 10000000 ){
+                let tmpElement = String(parseFloat(solElement).toExponential());
+                let maxDec = tmpElement.length - tmpElement.lastIndexOf("+");
+                let minusMod = 0;
+
+                if(parseFloat(solElement) < 0){
+                    minusMod = 1;
+                };
+
+                solElement = String(parseFloat(solElement).toExponential(8 - maxDec - tmpElement.lastIndexOf(".")));
+
+            }
+            else {
+                if(solElement.length > 9){
+                    if(solElement.lastIndexOf(".")!==-1 & solElement.lastIndexOf(".") < 10){
+                        solElement = String(parseFloat(solElement).toFixed(9 - solElement.lastIndexOf(".")));
+                    }
+                    solElement.slice(0,9);
+                };
+            }
+            ansBlock.textContent = solElement;
+        };
+
+    </script>
+</body>
+</html>

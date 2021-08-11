@@ -62,7 +62,55 @@
         };
         */
 
-        // better solution, add name
+        // better solution, add nameproperty to select and forloop past it.
+
+        function grabParameters( id ){
+            let param = document.getElementsByName(id);
+            let paramArray = [];
+            let idArray = [];
+
+            /*
+            // Below works as intended:
+            for(let i = 0; i < param.length; i++){
+                let paramElement = param[i];
+                paramArray.push(paramElement.options[paramElement.selectedIndex].value);
+            };
+            */
+            
+            /* For..in does not play well with NodeLists as obtained from getElementbyName!!!!
+            for(let i in param){
+                let paramElement = param[i];
+                console.log(paramElement, paramElement.options[paramElement.selectedIndex].value, i);
+                paramArray.push(paramElement.options[paramElement.selectedIndex].value);
+            };
+            */
+
+            for(let i of param){
+                // or you can use getAttribute('id')
+                idArray.push(i.id);
+                paramArray.push(i.options[i.selectedIndex].value);
+            };
+
+            return [idArray, paramArray];
+        };
+
+        var setButton = document.getElementById("set");
+
+        setButton.onclick = function(){
+            let [idArr, paramArr] = grabParameters( "cssProperty" );
+            let modifyElement = document.getElementById("modify");
+
+            concatString = ""
+
+            for(let i = 0; i < idArr.length; i++){
+                //concatString += idArr[i]+":"+paramArr[i]+";"
+                concatString += `${idArr[i]}:${paramArr[i]};`
+            };
+
+            //console.log(concatString);
+            modifyElement.style.cssText = concatString;
+        };
+
 
     </script>
 </body>
