@@ -27,6 +27,13 @@
     </div>
 
     <script>
+        // variables to catch blackJack or bust
+        let isAlive = true;
+        let cards = [];
+
+        // hand variable
+        let playerHand = document.getElementById('player-hand');
+
         // 2 cards that are initialised to 0, then given two variables
         let startButton = document.getElementById('start-game');
         let foldButton = document.getElementById('fold-game');
@@ -35,11 +42,23 @@
         foldButton.addEventListener('click', foldGame);
 
         function initGame( event ){
+
+            playerHand.firstElementChild.textContent = "Cards: ";
+
+            pushCard(cards);
+            pushCard(cards);
+
+            for(let i=0; i < cards.length; i++){
+                playerHand.firstElementChild.textContent += `${cards[i]} `;
+            };
+
             foldButton.style.display="inline";
             startButton.textContent = "hit me";
 
             startButton.removeEventListener('click', initGame);
             startButton.addEventListener('click', hitGame);
+
+            
 
         };
 
@@ -51,6 +70,18 @@
         function hitGame( event ){
             console.log('hit me');
         };
+
+        function drawCard(){
+            let randomInt = Math.floor(Math.random() * 13);
+            // clamp number to max 10
+            randomInt = Math.min(randomInt, 10)
+            return randomInt
+        };
+
+        function pushCard( array ){
+            let drawnCard = drawCard();
+            array.push(drawnCard);
+        }
 
 
     </script>
