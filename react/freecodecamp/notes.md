@@ -1,6 +1,16 @@
 # Notes for using npm/rollup
 
-Rollup is a package bundler, allowing easy management of loading in multiple libraries and dependencies
+Rollup is a package bundler, allowing easy management of loading in multiple libraries and dependencies.
+
+Shortcut in package.json to quickly use npm run dev,
+
+```json
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+```
 
 To use:
     npm init
@@ -13,6 +23,9 @@ Several useful "packages" to load for dev:
     rollup
     rollup-plugin-serve
     rollup-plugin-livereload
+
+bash:
+    npm i rollup rollup-plugin-serve rollup-plugin-livereload --save-dev
 
 These plugins allow live display of the compiled code. To use, create a rollup.config.js with the following minimum code placed in it
 
