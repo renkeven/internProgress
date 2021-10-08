@@ -1,5 +1,11 @@
 {% extends "plot/base.html" %}
 
 {% block content %}
-    <h1> Plot Home </h1>
+    {% for i in a %}
+        <h1> {{ i }} </h1>
+    {% endfor %}
 {% endblock content %}
+
+{% block data %}    
+    <h1> test </h1>
+{% endblock data %}

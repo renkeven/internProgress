@@ -1,0 +1,39 @@
+{
+  "name": "plot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "proxy": "http://localhost:8000",
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@rollup/plugin-replace": "^3.0.0",
+    "js-cookie": "^3.0.1",
+    "node-sass": "^6.0.1",
+    "postcss": "^8.3.6",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-fast-compare": "^3.2.0",
+    "react-select": "^4.3.1",
+    "react-vis": "^1.11.7",
+    "rollup": "^2.56.2",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-postcss": "^4.0.1",
+    "rollup-plugin-scss": "^2.6.1",
+    "rollup-plugin-serve": "^1.1.0"
+  },
+  "dependencies": {
+    "axios": "^0.21.4"
+  }
+}
